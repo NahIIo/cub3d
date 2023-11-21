@@ -1,0 +1,21 @@
+NO textures/mossy.xpm
+SO textures/purple_stone.xpm
+WE textures/red_brick.xpm
+EA textures/wood.xpm
+
+F 20,20,20
+C 200,200,200
+
+111    111111
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+101    100001
+1N1    100001
+111    111111
