@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:58:38 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 11:05:38 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/23 09:48:42 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@
 #  define O_DIRECTORY 00200000
 # endif
 
-# define MOVESPEED 0.0125
+# define MOVESPEED 0.0124
 # define ROTSPEED 0.015
 
 // COLORS
