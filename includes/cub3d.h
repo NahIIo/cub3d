@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:58:38 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/23 09:48:42 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:32:51 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@
 							MACROS
  --------------------------------------------------------------------------- */
 
-/* # define WIN_WIDTH 960 */
-/* # define WIN_HEIGHT 720 */
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 480
+# define WIN_WIDTH 960
+# define WIN_HEIGHT 720
 
 # define TEX_SIZE 64
 
@@ -43,8 +41,8 @@
 #  define O_DIRECTORY 00200000
 # endif
 
-# define MOVESPEED 0.0124
-# define ROTSPEED 0.015
+# define MOVESPEED 0.0224
+# define ROTSPEED 0.020
 
 // COLORS
 # define RED "\033[31m"
