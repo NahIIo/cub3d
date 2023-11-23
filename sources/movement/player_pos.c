@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:22:43 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/23 09:31:32 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/23 12:38:43 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 static bool	is_valid_pos_in_map(t_data *data, double x, double y)
 {
-	if (x < 1 || x >= data->mapinfo.width - 1)
+	if (x < 0 || x >= data->mapinfo.width - 1)
 		return (false);
-	if (y < 1 || y >= data->mapinfo.height)
+	if (y < 0 || y >= data->mapinfo.height)
 		return (false);
 	return (true);
 }
-
+/*
 static bool is_colliding_with_wall(t_data *data, double x, double y)
 {
 	if (data->map[(int)y][(int)x] == '0')
 		return (false);
 	return (true);
 }
+*/
 
 static bool	is_valid_pos(t_data *data, double x, double y)
 {
 	if (is_valid_pos_in_map(data, x, y))
-		if (is_colliding_with_wall(data, x, y) == false)
-			return (true);
+		return (true);
 	return (false);
 }
 
