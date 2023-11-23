@@ -3,7 +3,7 @@
 NAME	= cub3D
 
 CC		= gcc
-CFLAGS	= -Werror -Wextra -Wall -g3 #-fsanitize=address
+CFLAGS	= -Werror -Wextra -Wall -o3 #-fsanitize=address
 
 MLX_PATH	= minilibx-linux/
 MLX_NAME	= libmlx.a
