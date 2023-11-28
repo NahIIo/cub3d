@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:24:24 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 11:01:02 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/28 10:07:56 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,26 @@
 static void	print_controls(void)
 {
 	printf("\n");
-	printf("\tW: move forward\t");
-	printf("\tS: move backward\n");
-	printf("\tA: strafe left\t");
-	printf("\tD: strafe right\n");
-	printf("\t<: rotate left\t");
-	printf("\t>: rotate right\n");
-	printf("\n");
+	printf("\e[91m╔═══════════════════════════════════");
+	printf("═══════════════════════════════════╗\n");
+	if (BONUS)
+	{
+		printf("║\e[0m                                 BONUS            ");
+		printf("                    \e[91m║\n");
+	}
+	else
+	{
+		printf("║\e[0m                               NO BONUS            ");
+		printf("                   \e[91m║\n");
+	}
+	printf("║                           W\e[0m: Move Forward            ");
+	printf("                \e[91m║\n");
+	printf("║     A\e[0m: Move Left          \e[91mS\e[0m: ");
+	printf("Move Backward         \e[91mD\e[0m: Move Right     \e[91m║\n");
+	printf("║     <\e[0m: Turn Left             \e[91mEsc\e[0m: Quit    ");
+	printf("         \e[91m>\e[0m: Turn Right     \e[91m║\n");
+	printf("╚════════════════════════════════════════");
+	printf("══════════════════════════════╝\e[0m\n");
 }
 
 static int	parse_args(t_data *data, char **av)
@@ -51,7 +64,7 @@ int	main(int ac, char **av)
 	init_mlx(&data);
 	init_textures(&data);
 	print_controls();
-	render_images(&data);
+	render_raycast(&data);
 	listen_for_input(&data);
 	mlx_loop_hook(data.mlx, render, &data);
 	mlx_loop(data.mlx);

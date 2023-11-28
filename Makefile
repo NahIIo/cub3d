@@ -2,6 +2,8 @@
 
 NAME	= cub3D
 
+BONUS = 0
+
 CC		= gcc
 CFLAGS	= -Werror -Wextra -Wall -o3 #-fsanitize=address
 
@@ -62,10 +64,10 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)/exit
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+	$(CC) $(CFLAGS) -DBONUS=$(BONUS) -c $< -o $@ $(INC)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@ $(INC) $(LIBFT) $(MLX) -lXext -lX11 -lm
+	$(CC) $(CFLAGS) -DBONUS=$(BONUS) $(OBJS) -o $@ $(INC) $(LIBFT) $(MLX) -lXext -lX11 -lm
 
 $(LIBFT):
 	make -sC $(LIBFT_PATH)
@@ -77,6 +79,9 @@ clean:
 	rm -rf $(OBJ_PATH)
 	make -C $(LIBFT_PATH) clean
 	make -C $(MLX_PATH) clean
+
+bonus:
+	make all BONUS=1
 
 fclean: clean
 	rm -f $(NAME)

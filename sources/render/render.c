@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:24:08 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:24:09 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/28 09:30:56 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	render_frame(t_data *data)
 	mlx_destroy_image(data->mlx, image.img);
 }
 
-static void	render_raycast(t_data *data)
+void	render_raycast(t_data *data)
 {
 	init_texture_pixels(data);
 	init_ray(&data->ray);
@@ -53,16 +53,11 @@ static void	render_raycast(t_data *data)
 	render_frame(data);
 }
 
-void	render_images(t_data *data)
-{
-	render_raycast(data);
-}
-
 int	render(t_data *data)
 {
 	data->player.has_moved += move_player(data);
 	if (data->player.has_moved == 0)
 		return (0);
-	render_images(data);
+	render_raycast(data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:58:38 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/23 10:32:51 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/11/28 09:31:05 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 /* ---------------------------------------------------------------------------*
 							MACROS
  --------------------------------------------------------------------------- */
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 # define WIN_WIDTH 960
 # define WIN_HEIGHT 720
@@ -236,8 +239,7 @@ size_t	find_biggest_len(t_mapinfo *map, int i);
 
 /* render/render.c */
 int		render(t_data *data);
-void	render_images(t_data *data);
-
+void	render_raycast(t_data *data);
 /* render/raycasting.c */
 int		raycasting(t_player *player, t_data *data);
 
