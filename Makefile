@@ -60,7 +60,6 @@ $(OBJ_PATH):
 	mkdir -p $(OBJ_PATH)/parsing
 	mkdir -p $(OBJ_PATH)/movement
 	mkdir -p $(OBJ_PATH)/render
-	mkdir -p $(OBJ_PATH)/debug
 	mkdir -p $(OBJ_PATH)/exit
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
