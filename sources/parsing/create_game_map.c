@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:30 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 12:44:21 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 13:28:17 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,8 @@ static int	count_map_lines(t_data *data, char **file, int i)
 		{
 			i++;
 			if (!file[i])
-			{
-				i--;
-				while (file[i][0] == '\n')
-					i--;
 				break ;
-			}
 		}
-		else if (file[i][j] && file[i][j] != '1')
-			break ;
 		i++;
 	}
 	data->mapinfo.index_end_of_map = i;
