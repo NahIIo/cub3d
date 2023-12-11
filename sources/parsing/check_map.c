@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:22 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 12:48:40 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:17:18 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static int	check_map_elements(t_data *data, char **map_tab)
 			|| data->map[i][j] == '\r'
 			|| data->map[i][j] == '\v' || data->map[i][j] == '\f')
 				j++;
+			if (j >= data->mapinfo.width)
+                break ;
 			if (!(ft_strchr("10NSEW", map_tab[i][j])))
 				return (err_msg(data->mapinfo.path, ERR_INV_LETTER, FAILURE));
 			if (ft_strchr("NSEW", map_tab[i][j]) && data->player.dir != '0')
