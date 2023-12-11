@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:40 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 11:25:52 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:18:14 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	check_colors(char **colors)
 					j++;
 				if (j != (i + 1) && colors[count][j]
 					&& ft_isdigit(colors[count][j]))
-					return (FAILURE);				
+					return (FAILURE);
 			}
 			else if (is_a_white_space(colors[count][i]) == FAILURE)
 				return (FAILURE);

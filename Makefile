@@ -30,6 +30,7 @@ SRC		= 	main.c \
 			parsing/check_map_borders.c \
 			parsing/fill_color_textures.c \
 			parsing/parsing_utils.c \
+			parsing/parsing_utils2.c \
 			movement/input_handler.c \
 			movement/player_dir.c \
 			movement/player_pos.c \

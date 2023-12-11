@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:17 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 11:48:28 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:18:32 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static int	check_top_or_bottom(char **map_tab, int i, int j)
 	|| map_tab[i][j] == '\r' || map_tab[i][j] == '\v'
 	|| map_tab[i][j] == '\f' || map_tab[i][j] == '1')
 		j++;
-//	if (j < (int)ft_strlen(map_tab[i]))
-	//	return (FAILURE);
 	return (SUCCESS);
 }
 
