@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:57 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 08:46:42 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:22:28 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int	is_a_white_space(char c)
 {
-	if (c != ' ' && c != '\t' && c != '\r'
-		&& c != '\n' && c != '\v' && c != '\f')
-		return (FAILURE);
-	else
+	if (c == ' ' || c == '\t' || c == '\r'
+		|| c == '\n' || c == '\v' || c == '\f' || c == ' ')
 		return (SUCCESS);
+	else
+		return (FAILURE);
 }
 
 size_t	find_biggest_len(t_mapinfo *map, int i)

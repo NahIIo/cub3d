@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:22 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 09:58:12 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:52:33 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ static int	check_position_is_valid(t_data *data, char **map_tab)
 	int	i;
 	int	j;
 
+	
 	i = (int)data->player.pos_y;
 	j = (int)data->player.pos_x;
 	if (ft_strlen(map_tab[i - 1]) < (size_t)j
@@ -98,7 +99,7 @@ static int	check_map_is_at_the_end(t_mapinfo *map)
 		while (map->file[i][j])
 		{
 			if (map->file[i][j] != ' ' && map->file[i][j] != '\t'
-				&& map->file[i][j] != '\r' && map->file[i][j] != '\n'
+				&& map->file[i][j] != '\r'
 				&& map->file[i][j] != '\v' && map->file[i][j] != '\f')
 				return (FAILURE);
 			j++;

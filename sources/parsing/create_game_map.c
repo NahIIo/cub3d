@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:30 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 10:01:02 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:14:00 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ static int	fill_map_tab(t_mapinfo *mapinfo, char **map_tab, int index)
 		{
 			map_tab[i][j] = mapinfo->file[index][j];
 			j++;
-		}	
+		}
 		while (j < mapinfo->width)
-			map_tab[i][j++] = '1';
+			map_tab[i][j++] = '\0';
 		i++;
 		index++;
 	}

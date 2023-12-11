@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:40 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 09:39:24 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:25:52 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ static int	check_colors(char **colors)
 	int	i;
 	int	j;
 
-	count = 0;
-	while (colors[count])
+	count = -1;
+	while (colors[++count])
 	{
 		i = 0;
 		while (colors[count][i])
@@ -62,15 +62,16 @@ static int	check_colors(char **colors)
 			if (ft_isdigit(colors[count][i]))
 			{
 				j = i + 1;
-				while (colors[count][j] && !ft_isdigit(colors[count][j]))
+				while (colors[count][j] && is_a_white_space(colors[count][j]) == SUCCESS)
 					j++;
 				if (j != (i + 1) && colors[count][j]
 					&& ft_isdigit(colors[count][j]))
-					return (FAILURE);
-			}			
+					return (FAILURE);				
+			}
+			else if (is_a_white_space(colors[count][i]) == FAILURE)
+				return (FAILURE);
 			i++;
 		}
-		count++;
 	}
 	return (SUCCESS);
 }
