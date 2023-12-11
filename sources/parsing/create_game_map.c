@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:30 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 14:13:50 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:31:26 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,9 @@ static void	change_space_into_wall(t_data *data)
 	while (data->map[i])
 	{
 		j = 0;
-		while (data->map[i][j] == ' ' || data->map[i][j] == '\t'
-		|| data->map[i][j] == '\r'
-		|| data->map[i][j] == '\v' || data->map[i][j] == '\f')
-			j++;
 		while (data->map[i][j])
 		{
-			if (data->map[i][j] == ' '
+			if (is_a_white_space(data->map[i][j]) == SUCCESS
 				&& j != data->map[i][ft_strlen(data->map[i]) - 1])
 				data->map[i][j] = '1';
 			j++;

@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:44:22 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/12/11 14:17:18 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:34:59 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,26 @@ static int	check_map_elements(t_data *data, char **map_tab)
 	int	i;
 	int	j;
 
-	i = 0;
+	i = -1;
 	data->player.dir = '0';
-	while (map_tab[i] != NULL)
+	while (map_tab[++i] != NULL)
 	{
-		j = 0;
-		while (map_tab[i][j])
+		j = -1;
+		while (map_tab[i][++j])
 		{
 			while (data->map[i][j] == ' ' || data->map[i][j] == '\t'
 			|| data->map[i][j] == '\r'
 			|| data->map[i][j] == '\v' || data->map[i][j] == '\f')
 				j++;
 			if (j >= data->mapinfo.width)
-                break ;
+				break ;
 			if (!(ft_strchr("10NSEW", map_tab[i][j])))
 				return (err_msg(data->mapinfo.path, ERR_INV_LETTER, FAILURE));
 			if (ft_strchr("NSEW", map_tab[i][j]) && data->player.dir != '0')
 				return (err_msg(data->mapinfo.path, ERR_NUM_PLAYER, FAILURE));
 			if (ft_strchr("NSEW", map_tab[i][j]) && data->player.dir == '0')
 				data->player.dir = map_tab[i][j];
-			j++;
 		}
-		i++;
 	}
 	return (SUCCESS);
 }
