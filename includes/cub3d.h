@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 09:58:38 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/28 09:31:05 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 09:42:03 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@
 # define ERR_TEX_MISSING "Missing texture(s)"
 # define ERR_TEX_INVALID "Invalid texture(s)"
 # define ERR_COLOR_MISSING "Missing color(s)"
-# define ERR_MAP_MISSING "Missing map"
-# define ERR_MAP_TOO_SMALL "Map is not at least 3 lines high"
-# define ERR_MAP_NO_WALLS "Map is not surrounded by walls"
-# define ERR_MAP_LAST "Map is not the last element in file"
+# define ERR_MAP_MISSING "Map error"
+# define ERR_MAP_TOO_SMALL "Map error"
+# define ERR_MAP_NO_WALLS "Map error"
+# define ERR_MAP_LAST "Map error"
 # define ERR_PLAYER_POS "Invalid player position"
 # define ERR_PLAYER_DIR "Map has no player position (expected N, S, E or W)"
 # define ERR_MALLOC "Could not allocate memory"
@@ -277,4 +277,6 @@ int		free_data(t_data *data);
 int		err_msg(char *detail, char *str, int code);
 int		err_msg_val(int detail, char *str, int code);
 
+int		last_check(t_mapinfo *mapinfo, int i);
+int		check_whitespaces(char *string);
 #endif

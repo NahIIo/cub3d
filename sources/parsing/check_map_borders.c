@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:17 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:23:19 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 08:51:19 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,12 @@ static int	check_top_or_bottom(char **map_tab, int i, int j)
 int	check_map_sides(t_mapinfo *map, char **map_tab)
 {
 	int	i;
-	int	j;
 
 	if (check_top_or_bottom(map_tab, 0, 0) == FAILURE)
 		return (FAILURE);
 	i = 1;
 	while (i < (map->height - 1))
-	{
-		j = ft_strlen(map_tab[i]) - 1;
-		if (map_tab[i][j] != '1')
-			return (FAILURE);
 		i++;
-	}
 	if (check_top_or_bottom(map_tab, i, 0) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);

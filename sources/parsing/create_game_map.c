@@ -6,7 +6,7 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:23:30 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:23:31 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/11 10:01:02 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,19 @@ static int	count_map_lines(t_data *data, char **file, int i)
 	index_value = i;
 	while (file[i])
 	{
-		j = 0;
-		while (file[i][j] == ' ' || file[i][j] == '\t' || file[i][j] == '\r'
-		|| file[i][j] == '\v' || file[i][j] == '\f')
-			j++;
-		if (file[i][j] != '1')
+		j = check_whitespaces(file[i]);
+		if (file[i][0] && file[i][0] == '\n')
+		{
+			i++;
+			if (!file[i])
+			{
+				i--;
+				while (file[i][0] == '\n')
+					i--;
+				break ;
+			}
+		}
+		else if (file[i][j] && file[i][j] != '1')
 			break ;
 		i++;
 	}
@@ -51,7 +59,7 @@ static int	fill_map_tab(t_mapinfo *mapinfo, char **map_tab, int index)
 			j++;
 		}	
 		while (j < mapinfo->width)
-			map_tab[i][j++] = '\0';
+			map_tab[i][j++] = '1';
 		i++;
 		index++;
 	}
@@ -83,11 +91,12 @@ static void	change_space_into_wall(t_data *data)
 		|| data->map[i][j] == '\r'
 		|| data->map[i][j] == '\v' || data->map[i][j] == '\f')
 			j++;
-		while (data->map[i][++j])
+		while (data->map[i][j])
 		{
 			if (data->map[i][j] == ' '
 				&& j != data->map[i][ft_strlen(data->map[i]) - 1])
 				data->map[i][j] = '1';
+			j++;
 		}
 		i++;
 	}
@@ -95,7 +104,12 @@ static void	change_space_into_wall(t_data *data)
 
 int	create_map(t_data *data, char **file, int i)
 {
+	int	copy;
+
+	copy = i;
 	if (get_map_info(data, file, i) == FAILURE)
+		return (FAILURE);
+	if (last_check(&data->mapinfo, copy) == FAILURE)
 		return (FAILURE);
 	change_space_into_wall(data);
 	return (SUCCESS);

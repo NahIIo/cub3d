@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:23:35 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:23:36 by jchauvet         ###   ########.fr       */
+/*   Created: 2023/12/08 14:44:40 by jchauvet          #+#    #+#             */
+/*   Updated: 2023/12/11 09:39:24 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,34 @@ static int	*copy_into_rgb_array(char **rgb_to_convert, int *rgb)
 	return (rgb);
 }
 
+static int	check_colors(char **colors)
+{
+	int	count;
+	int	i;
+	int	j;
+
+	count = 0;
+	while (colors[count])
+	{
+		i = 0;
+		while (colors[count][i])
+		{
+			if (ft_isdigit(colors[count][i]))
+			{
+				j = i + 1;
+				while (colors[count][j] && !ft_isdigit(colors[count][j]))
+					j++;
+				if (j != (i + 1) && colors[count][j]
+					&& ft_isdigit(colors[count][j]))
+					return (FAILURE);
+			}			
+			i++;
+		}
+		count++;
+	}
+	return (SUCCESS);
+}
+
 static int	*set_rgb_colors(char *line)
 {
 	char	**rgb_to_convert;
@@ -58,6 +86,11 @@ static int	*set_rgb_colors(char *line)
 	while (rgb_to_convert[count])
 		count++;
 	if (count != 3)
+	{
+		free_tab((void **)rgb_to_convert);
+		return (0);
+	}
+	if (check_colors(rgb_to_convert) == FAILURE)
 	{
 		free_tab((void **)rgb_to_convert);
 		return (0);

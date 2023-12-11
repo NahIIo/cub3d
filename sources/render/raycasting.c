@@ -6,19 +6,11 @@
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 10:24:01 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:24:03 by jchauvet         ###   ########.fr       */
+/*   Updated: 2023/12/08 08:40:54 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*
-We initialize the set up for the rays
-- camera_x -> Where is the camera (-1 = left, 0 = center, 1 = right)
-- dir_x/y = direction of the ray
-- map_x/y = current square of the ray
-- deltadist_x/y = distance to go to the next x or y.
-*/
 
 static void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 {
@@ -31,15 +23,6 @@ static void	init_raycasting_info(int x, t_ray *ray, t_player *player)
 	ray->deltadist_x = fabs(1 / ray->dir_x);
 	ray->deltadist_y = fabs(1 / ray->dir_y);
 }
-
-/*
-- We are doing the initial set up for the dda
-- dda algorithm will jump one square in each loop eiter in a x or y direction
-- ray->sidedist_x or y = distance from the ray start position to the
-	next x or y position
-- if x or y < 0 go the next x or y to the left
-- if x or y > 0 go the next x or y to the right
-*/
 
 static void	set_dda(t_ray *ray, t_player *player)
 {
@@ -65,12 +48,6 @@ static void	set_dda(t_ray *ray, t_player *player)
 	}
 }
 
-/*
-- We implement the DDA algorithm -> the loop will increment 1 square 
--   until we hit a wall
-- If the sidedistx < sidedisty, x is the closest point from the ray
-*/
-
 static void	perform_dda(t_data *data, t_ray *ray)
 {
 	int	hit;
@@ -92,8 +69,8 @@ static void	perform_dda(t_data *data, t_ray *ray)
 		}
 		if (ray->map_y < 0.25
 			|| ray->map_x < 0.25
-			|| ray->map_y > data->mapinfo.height - 0.25
-			|| ray->map_x > data->mapinfo.width - 1.25)
+			|| ray->map_y > data->mapinfo.height - 1.25
+			|| ray->map_x > data->mapinfo.width - 2.25)
 			break ;
 		else if (data->map[ray->map_y][ray->map_x] > '0')
 			hit = 1;

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:23:39 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:23:41 by jchauvet         ###   ########.fr       */
+/*   Created: 2023/12/08 14:44:45 by jchauvet          #+#    #+#             */
+/*   Updated: 2023/12/11 09:49:10 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int	ignore_whitespaces_get_info(t_data *data, char **map, int i, int j)
 			if (fill_direction_textures(&data->texinfo, map[i], j) == ERR)
 				return (err_msg(data->mapinfo.path, ERR_TEX_INVALID, FAILURE));
 			return (BREAK);
-		}	
+		}
 		else
 		{
 			if (fill_color_textures(data, &data->texinfo, map[i], j) == ERR)

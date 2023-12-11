@@ -4,7 +4,7 @@ NAME	= cub3D
 
 BONUS = 0
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Werror -Wextra -Wall -o3 #-fsanitize=address
 
 MLX_PATH	= minilibx-linux/
@@ -72,7 +72,7 @@ $(LIBFT):
 	make -sC $(LIBFT_PATH)
 
 $(MLX):
-	make -sC $(MLX_PATH)
+	make -sC $(MLX_PATH) 2>/dev/null
 
 clean:
 	rm -rf $(OBJ_PATH)

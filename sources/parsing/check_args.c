@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jchauvet <jchauvet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:23:12 by jchauvet          #+#    #+#             */
-/*   Updated: 2023/11/21 10:23:13 by jchauvet         ###   ########.fr       */
+/*   Created: 2023/12/08 14:44:04 by jchauvet          #+#    #+#             */
+/*   Updated: 2023/12/08 14:44:11 by jchauvet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*
-**	Checks whether the arg given is a correct .cub extension, checks that
-**	 it exists and isn't a folder instead of a file.
-*/
 
 static bool	is_dir(char *arg)
 {
