@@ -61,8 +61,10 @@ int	last_check(t_mapinfo *mapinfo, int i)
 			{
 				if ((int)ft_strlen(mapinfo->file[i - 1]) < j)
 					return (FAILURE);
+				if (j == 0 || !mapinfo->file[i + 1])
+					return (FAILURE);
 				if (mapinfo->file[i + 1]
-					&& (int)ft_strlen(mapinfo->file[i + 1]) < j)
+					&& printf("%d\n", (int)ft_strlen(mapinfo->file[i + 1])) && (int)ft_strlen(mapinfo->file[i + 1]) <= j)
 					return (FAILURE);
 				if (last_check_utils(mapinfo->file, i, j) == FAILURE)
 					return (FAILURE);

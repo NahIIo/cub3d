@@ -15,12 +15,10 @@
 static int	count_map_lines(t_data *data, char **file, int i)
 {
 	int	index_value;
-	int	j;
 
 	index_value = i;
 	while (file[i])
 	{
-		j = check_whitespaces(file[i]);
 		if (file[i][0] && file[i][0] == '\n')
 		{
 			i++;
